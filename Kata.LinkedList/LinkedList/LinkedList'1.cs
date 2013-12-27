@@ -14,6 +14,10 @@ namespace LinkedList
             {
                 Tail = Head;
             }
+            else
+            {
+                Tail = value;
+            }
 
             Head = value;
         }
@@ -23,6 +27,10 @@ namespace LinkedList
             if (Tail != null)
             {
                 Head = Tail;
+            }
+            else
+            {
+                Head = value;
             }
 
             Tail = value;
