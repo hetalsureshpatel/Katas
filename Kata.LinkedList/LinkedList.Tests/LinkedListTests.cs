@@ -21,8 +21,8 @@ namespace LinkedList.Tests
 
             list.AddFirst(1);
 
-            Assert.AreEqual(1, list.Head);
-            Assert.AreEqual(1, list.Tail);
+            Assert.AreEqual(1, list.Head.Value);
+            Assert.AreEqual(1, list.Tail.Value);
         }
 
         [Test]
@@ -33,8 +33,8 @@ namespace LinkedList.Tests
             list.AddFirst(1);
             list.AddFirst(2);
 
-            Assert.AreEqual(2, list.Head);
-            Assert.AreEqual(1, list.Tail, "Tail value does not match");
+            Assert.AreEqual(2, list.Head.Value);
+            Assert.AreEqual(1, list.Tail.Value, "Tail value does not match");
         }
 
         [Test]
@@ -58,6 +58,12 @@ namespace LinkedList.Tests
 
             Assert.AreEqual(1, list.Head, "head value does not match");
             Assert.AreEqual(2, list.Tail);
+        }
+
+        [Test]
+        public void add_item_before_head_to_an_existing_list_should_become_head()
+        {
+           
         }
     }
 }
