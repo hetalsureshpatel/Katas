@@ -6,12 +6,17 @@ namespace LinkedList
     {
         public Node<T> Head { get; protected set; }
 
-        public Node<T> Tail { get; protected set; }
+        public Node<T> Tail
+        {
+            get
+            {
+                return Head != null ? Head.Prev : null;
+            }
+        }
 
         public LinkedList()
         {
             Head = null;
-            Tail = null;
         }
 
         public void AddFirst(T value)
@@ -24,7 +29,10 @@ namespace LinkedList
             }
             else
             {
-                InsertNodeBefore(Head, newNode);
+                newNode.Prev = Head.Prev;
+                newNode.Next = Head;
+                Head.Prev = newNode;
+                Head = newNode;
             }
         }
 
@@ -38,24 +46,21 @@ namespace LinkedList
             }
             else
             {
-                InsertNodeBefore(Tail, newNode);
+                Tail.Next = newNode;
+                newNode.Prev = Tail;
+                Head.Prev = newNode;
             }
         }
 
-        public void AddBefore(object node, T value)
+        public void AddBefore(Node<T> node, T value)
         {
-            throw new NotImplementedException();
+            
         }
 
         private void InsertNodeToEmptyList(Node<T> newNode)
         {
-            newNode.Next = newNode;
             Head = newNode;
-            Tail = newNode;
-        }
-
-        private void InsertNodeBefore(Node<T> node, Node<T> newNode)
-        {
+            Head.Prev = newNode;
         }
     }
 }
