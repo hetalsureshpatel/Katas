@@ -73,6 +73,20 @@ namespace LinkedList.Tests
         }
 
         [Test]
+        public void add_item_before_head_to_an_existing_list_should_become_head_and_not_tail()
+        {
+            var list = new LinkedList<int>();
+            var one = 1;
+            var two = 2;
+
+            list.AddFirst(one);
+            list.AddBefore(list.Head, one);
+
+            Assert.AreEqual(two, list.Head.Value);
+            Assert.AreEqual(one, list.Tail.Value);
+        }
+
+        [Test]
         public void add_item_before_tail_to_an_empty_list_should_become_head_and_tail()
         {
             var list = new LinkedList<int>();

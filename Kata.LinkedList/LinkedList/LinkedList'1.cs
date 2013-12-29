@@ -54,7 +54,18 @@ namespace LinkedList
 
         public void AddBefore(Node<T> node, T value)
         {
-            
+            var newNode = new Node<T>(value);
+
+            if (Head == null)
+            {
+                InsertNodeToEmptyList(newNode);
+            }
+            else
+            {
+                newNode.Next = node;
+                newNode.Prev = node.Prev;
+                node.Prev = newNode;    
+            }
         }
 
         private void InsertNodeToEmptyList(Node<T> newNode)
