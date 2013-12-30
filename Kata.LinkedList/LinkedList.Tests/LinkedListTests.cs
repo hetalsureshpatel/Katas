@@ -97,5 +97,23 @@ namespace LinkedList.Tests
             Assert.AreEqual(one, list.Head.Value);
             Assert.AreEqual(one, list.Tail.Value);
         }
+
+        [Test]
+        public void add_to_the_front_four_items_count_should_be_four()
+        {
+            var list = new LinkedList<int>();
+            var one = 1;
+            var two = 2;
+            var three = 3;
+            var four = 4;
+
+            list.AddFirst(one);
+            list.AddFirst(two);
+            list.AddFirst(three);
+            list.AddFirst(four);
+
+            Assert.AreEqual(4, list.Count);
+        }
+
     }
 }

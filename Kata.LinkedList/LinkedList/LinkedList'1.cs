@@ -14,6 +14,8 @@ namespace LinkedList
             }
         }
 
+        public int Count { get; protected set; }
+
         public LinkedList()
         {
             Head = null;
@@ -67,18 +69,20 @@ namespace LinkedList
             }
         }
 
-        private static void InsertNodeBefore(Node<T> node, Node<T> newNode)
+        private void InsertNodeBefore(Node<T> node, Node<T> newNode)
         {
             newNode.Next = node;
             newNode.Prev = node.Prev;
             node.Prev.Next = newNode;
             node.Prev = newNode;
+            ++Count;
         }
 
         private void InsertNodeToEmptyList(Node<T> newNode)
         {
             Head = newNode;
             Head.Prev = newNode;
+            ++Count;
         }
     }
 }
