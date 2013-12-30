@@ -115,5 +115,22 @@ namespace LinkedList.Tests
             Assert.AreEqual(4, list.Count);
         }
 
+        [Test]
+        public void add_to_the_end_four_items_count_should_be_four()
+        {
+            var list = new LinkedList<int>();
+            var one = 1;
+            var two = 2;
+            var three = 3;
+            var four = 4;
+
+            list.AddLast(one);
+            list.AddLast(two);
+            list.AddLast(three);
+            list.AddLast(four);
+
+            Assert.AreEqual(4, list.Count);
+        }
+
     }
 }
