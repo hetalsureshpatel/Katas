@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Linq;
+using NUnit.Framework;
 
 namespace LinkedList.Tests
 {
@@ -132,5 +133,26 @@ namespace LinkedList.Tests
             Assert.AreEqual(4, list.Count);
         }
 
+        [Test]
+        public void add_item_in_middle_of_a_list_should_appear_in_the_correct_order()
+        {
+            //var ls = new System.Collections.Generic.LinkedList<int>();
+
+            var list = new LinkedList<int>();
+            var one = 1;
+            var two = 2;
+            var three = 3;
+
+            list.AddFirst(one);
+            list.AddLast(three);
+
+            list.AddBefore(list.Tail, two);
+
+            var result = list.ToList();
+
+            Assert.AreEqual(one, list.Head.Value);
+            Assert.AreEqual(two, result[1]);
+            Assert.AreEqual(three, list.Tail.Value);
+        }
     }
 }
