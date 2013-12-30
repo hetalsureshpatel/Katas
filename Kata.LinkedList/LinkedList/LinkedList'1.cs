@@ -20,7 +20,7 @@ namespace LinkedList
 
         public LinkedList()
         {
-            Head = null;
+            Reset();
         }
 
         public void AddFirst(T value)
@@ -71,6 +71,11 @@ namespace LinkedList
             }
         }
 
+        public void Clear()
+        {
+            Reset();
+        }
+
         private void InsertNodeBefore(Node<T> node, Node<T> newNode)
         {
             newNode.Next = node;
@@ -85,6 +90,12 @@ namespace LinkedList
             Head = newNode;
             Head.Prev = newNode;
             ++Count;
+        }
+
+        private void Reset()
+        {
+            Head = null;
+            Count = 0;
         }
 
         #region Implementation of IEnumerable
@@ -206,6 +217,4 @@ namespace LinkedList
             #endregion
         }
     }
-
-    
 }

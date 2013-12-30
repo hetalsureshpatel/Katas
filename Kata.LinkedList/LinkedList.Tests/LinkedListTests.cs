@@ -136,8 +136,6 @@ namespace LinkedList.Tests
         [Test]
         public void add_item_in_middle_of_a_list_should_appear_in_the_correct_order()
         {
-            //var ls = new System.Collections.Generic.LinkedList<int>();
-
             var list = new LinkedList<int>();
             var one = 1;
             var two = 2;
@@ -153,6 +151,22 @@ namespace LinkedList.Tests
             Assert.AreEqual(one, list.Head.Value);
             Assert.AreEqual(two, result[1]);
             Assert.AreEqual(three, list.Tail.Value);
+        }
+
+        [Test]
+        public void should_be_able_to_clear_an_existing_list()
+        {
+            var list = new LinkedList<int>();
+
+            list.AddFirst(1);
+            list.AddFirst(2);
+            list.AddFirst(3);
+
+            list.Clear();
+
+            Assert.AreEqual(0, list.Count);
+            Assert.IsNull(list.Head);
+            Assert.IsNull(list.Tail);
         }
     }
 }
