@@ -185,5 +185,17 @@ namespace LinkedList.Tests
             Assert.IsTrue(isRemoved, "The value 2 was not removed from list.");
             Assert.IsFalse(result.Any(i => i == 2), "The value 2 was not removed from list.");
         }
+
+        [Test]
+        public void remove_item_by_value_from_an_empty_list_should_not_have_removed_item_from_list()
+        {
+            var list = new LinkedList<int>();
+
+
+            var isRemoved = list.Remove(2);
+
+            Assert.AreEqual(0, list.Count);
+            Assert.IsFalse(isRemoved, "No item should have been removed.");
+        }
     }
 }
