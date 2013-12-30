@@ -80,7 +80,7 @@ namespace LinkedList.Tests
             var two = 2;
 
             list.AddFirst(one);
-            list.AddBefore(list.Head, one);
+            list.AddBefore(list.Head, two);
 
             Assert.AreEqual(two, list.Head.Value);
             Assert.AreEqual(one, list.Tail.Value);

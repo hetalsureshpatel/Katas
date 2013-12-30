@@ -29,9 +29,7 @@ namespace LinkedList
             }
             else
             {
-                newNode.Prev = Head.Prev;
-                newNode.Next = Head;
-                Head.Prev = newNode;
+                InsertNodeBefore(Head, newNode);
                 Head = newNode;
             }
         }
@@ -46,9 +44,7 @@ namespace LinkedList
             }
             else
             {
-                Tail.Next = newNode;
-                newNode.Prev = Tail;
-                Head.Prev = newNode;
+                InsertNodeBefore(Head, newNode);
             }
         }
 
@@ -62,10 +58,21 @@ namespace LinkedList
             }
             else
             {
-                newNode.Next = node;
-                newNode.Prev = node.Prev;
-                node.Prev = newNode;    
+                InsertNodeBefore(node, newNode);
+
+                if (node == Head)
+                {
+                    Head = newNode;
+                }
             }
+        }
+
+        private static void InsertNodeBefore(Node<T> node, Node<T> newNode)
+        {
+            newNode.Next = node;
+            newNode.Prev = node.Prev;
+            node.Prev.Next = newNode;
+            node.Prev = newNode;
         }
 
         private void InsertNodeToEmptyList(Node<T> newNode)
