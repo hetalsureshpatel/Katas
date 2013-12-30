@@ -23,7 +23,7 @@ namespace LinkedList
             Reset();
         }
 
-        public void AddFirst(T value)
+        public void AddHead(T value)
         {
             var newNode = new Node<T>(value);
 
@@ -38,7 +38,7 @@ namespace LinkedList
             }
         }
 
-        public void AddLast(T value)
+        public void AddTail(T value)
         {
             var newNode = new Node<T>(value);
 

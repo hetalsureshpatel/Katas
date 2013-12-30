@@ -16,46 +16,46 @@ namespace LinkedList.Tests
         }
 
         [Test]
-        public void add_to_the_front_to_an_empty_list_should_be_head_and_tail()
+        public void add_to_the_head_to_an_empty_list_should_be_head_and_tail()
         {
             var list = new LinkedList<int>();
 
-            list.AddFirst(1);
+            list.AddHead(1);
 
             Assert.AreEqual(1, list.Head.Value);
             Assert.AreEqual(1, list.Tail.Value);
         }
 
         [Test]
-        public void add_to_the_front_to_an_existing_list_should_be_head_and_not_tail()
+        public void add_to_the_head_to_an_existing_list_should_be_head_and_not_tail()
         {
             var list = new LinkedList<int>();
 
-            list.AddFirst(1);
-            list.AddFirst(2);
+            list.AddHead(1);
+            list.AddHead(2);
 
             Assert.AreEqual(2, list.Head.Value);
             Assert.AreEqual(1, list.Tail.Value, "Tail value does not match");
         }
 
         [Test]
-        public void add_to_the_end_to_an_empty_list_should_be_head_and_tail()
+        public void add_to_the_tail_to_an_empty_list_should_be_head_and_tail()
         {
             var list = new LinkedList<int>();
 
-            list.AddLast(1);
+            list.AddTail(1);
 
             Assert.AreEqual(1, list.Head.Value);
             Assert.AreEqual(1, list.Tail.Value);
         }
 
         [Test]
-        public void add_to_the_end_to_an_existing_list_should_be_tail_and_not_head()
+        public void add_to_the_tail_to_an_existing_list_should_be_tail_and_not_head()
         {
             var list = new LinkedList<int>();
 
-            list.AddLast(1);
-            list.AddLast(2);
+            list.AddTail(1);
+            list.AddTail(2);
 
             Assert.AreEqual(1, list.Head.Value, "head value does not match");
             Assert.AreEqual(2, list.Tail.Value);
@@ -80,7 +80,7 @@ namespace LinkedList.Tests
             var one = 1;
             var two = 2;
 
-            list.AddFirst(one);
+            list.AddHead(one);
             list.AddBefore(list.Head, two);
 
             Assert.AreEqual(two, list.Head.Value);
@@ -100,7 +100,7 @@ namespace LinkedList.Tests
         }
 
         [Test]
-        public void add_to_the_front_four_items_count_should_be_four()
+        public void add_to_the_head_four_items_count_should_be_four()
         {
             var list = new LinkedList<int>();
             var one = 1;
@@ -108,16 +108,16 @@ namespace LinkedList.Tests
             var three = 3;
             var four = 4;
 
-            list.AddFirst(one);
-            list.AddFirst(two);
-            list.AddFirst(three);
-            list.AddFirst(four);
+            list.AddHead(one);
+            list.AddHead(two);
+            list.AddHead(three);
+            list.AddHead(four);
 
             Assert.AreEqual(4, list.Count);
         }
 
         [Test]
-        public void add_to_the_end_four_items_count_should_be_four()
+        public void add_to_the_tail_four_items_count_should_be_four()
         {
             var list = new LinkedList<int>();
             var one = 1;
@@ -125,10 +125,10 @@ namespace LinkedList.Tests
             var three = 3;
             var four = 4;
 
-            list.AddLast(one);
-            list.AddLast(two);
-            list.AddLast(three);
-            list.AddLast(four);
+            list.AddTail(one);
+            list.AddTail(two);
+            list.AddTail(three);
+            list.AddTail(four);
 
             Assert.AreEqual(4, list.Count);
         }
@@ -141,8 +141,8 @@ namespace LinkedList.Tests
             var two = 2;
             var three = 3;
 
-            list.AddFirst(one);
-            list.AddLast(three);
+            list.AddHead(one);
+            list.AddTail(three);
 
             list.AddBefore(list.Tail, two);
 
@@ -158,9 +158,9 @@ namespace LinkedList.Tests
         {
             var list = new LinkedList<int>();
 
-            list.AddFirst(1);
-            list.AddFirst(2);
-            list.AddFirst(3);
+            list.AddHead(1);
+            list.AddHead(2);
+            list.AddHead(3);
 
             list.Clear();
 
@@ -174,8 +174,8 @@ namespace LinkedList.Tests
         {
             var list = new LinkedList<int>();
 
-            list.AddFirst(2);
-            list.AddFirst(1);
+            list.AddHead(2);
+            list.AddHead(1);
 
             var isRemoved = list.Remove(2);
 
