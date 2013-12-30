@@ -76,6 +76,49 @@ namespace LinkedList
             Reset();
         }
 
+        public bool Remove(T value)
+        {
+            Node<T> nodeToRemove = null;
+            bool isRemoved = false;
+
+            if (Head != null)
+            {
+                nodeToRemove = Head;
+
+                bool @continue;
+                do
+                {
+                    if (!nodeToRemove.Value.Equals(value))
+                    {
+                        @continue = nodeToRemove.Next != Head;
+
+                        if (@continue)
+                        {
+                            nodeToRemove = nodeToRemove.Next;
+                        }
+                    }
+                    else
+                    {
+                        @continue = false;
+                    }
+                } while (@continue);
+            }
+
+            if (nodeToRemove != null)
+            {
+                var next = nodeToRemove.Next;
+                var prev = nodeToRemove.Prev;
+
+                prev.Next = next;
+                next.Prev = prev;
+
+                --Count;
+                isRemoved = true;
+            }
+
+            return isRemoved;
+        }
+
         private void InsertNodeBefore(Node<T> node, Node<T> newNode)
         {
             newNode.Next = node;
