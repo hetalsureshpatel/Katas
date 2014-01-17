@@ -24,5 +24,15 @@ namespace String.Calculator.Tests
 
             Assert.AreEqual(0, result);
         }
+
+        [Test]
+        public void passing_in_one_number_should_equal_that_number()
+        {
+            var input = "1";
+
+            var result = new Calculator().Add(input);
+
+            Assert.AreEqual(1, result);
+        }
     }
 }

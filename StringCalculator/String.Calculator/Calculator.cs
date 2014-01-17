@@ -1,12 +1,17 @@
-﻿using System;
-
-namespace String.Calculator
+﻿namespace String.Calculator
 {
     public class Calculator
     {
         public int Add(string numbers)
         {
-            return 0;
+            int result = 0;
+
+            if (!string.IsNullOrEmpty(numbers))
+            {
+                result = int.Parse(numbers);
+            }
+
+            return result;
         }
     }
 }
