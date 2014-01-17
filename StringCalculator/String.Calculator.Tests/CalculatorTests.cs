@@ -14,5 +14,15 @@ namespace String.Calculator.Tests
 
             Assert.AreEqual(0, result);
         }
+
+        [Test]
+        public void passing_in_null_should_equal_zero()
+        {
+            var input = string.Empty;
+
+            var result = new Calculator().Add(input);
+
+            Assert.AreEqual(0, result);
+        }
     }
 }
