@@ -5,10 +5,14 @@ namespace String.Calculator.Tests
     [TestFixture]
     public class CalculatorTests
     {
-
         [Test]
-        public void T()
+        public void passing_in_no_numbers_should_equal_zero()
         {
+            var input = string.Empty;
+
+            var result = new Calculator().Add(input);
+
+            Assert.AreEqual(0, result);
         }
     }
 }
